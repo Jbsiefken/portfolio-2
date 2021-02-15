@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+/*|| Mixins */
 @mixin centered() {
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -21,6 +22,7 @@
     background-image: linear-gradient($property, $property2, $property3, $property4);
 }
 
+/*|| Basic Elements */
 body{
     padding-top: 50px;
     padding-bottom: 20px;
@@ -47,17 +49,12 @@ h2 {
     font-size: 30px;
 }
 
+/*|| Misc ID-ed elements */
 #top {
     position: absolute;
     top: 0;
     width: 1px;
     height: 1px;
-}
-
-.floater {
-    position: absolute;
-    top: 90vh;
-    @include centered();
 }
 
 #footer {
@@ -71,27 +68,7 @@ h2 {
     z-index: -1;
 }
 
-.headspace {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-.headspace-solid {
-    background-color: #333333; 
-    height: 50px;
-}
-
-.headspace-fade {
-    @include linearGradient2(to bottom, #333333, #333333, rgba(0, 0, 0, 0));
-}
-
-.heading {
-    font-size: 50px;
-    max-width: 1000px;
-    margin: auto;
-}
-
+/*|| CSS grid */
 .page {
     height: 100vh;
     display: grid;
@@ -146,6 +123,48 @@ h2 {
     grid-row-end: -1;
 }
 
+/*|| Headings */
+.floater {
+    position: fixed;
+    top: 90vh;
+    @include centered();
+}
+
+.headspace {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.headspace-solid {
+    background-color: #333333; 
+    height: 50px;
+}
+
+.headspace-fade {
+    @include linearGradient2(to bottom, #333333, #33333379, rgba(0, 0, 0, 0));
+}
+
+.heading {
+    font-size: 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/*|| FX classes */
+.invisible {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.dissapearing {
+    transition: opacity .2s;
+}
+
+/*|| Small screen layout */
 @media (max-width: 600px){
     .page {
         grid-template-columns: 1fr;

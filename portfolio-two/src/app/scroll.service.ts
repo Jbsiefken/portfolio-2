@@ -17,15 +17,18 @@ export class ScrollService {
    getPage(): void{
     const vh = window.innerHeight;
     const rect = document.getElementById('top').getBoundingClientRect();
+    let page: number = 0
     if (rect.top <= 0 && rect.top > vh * -0.25){
-      this.currentPage.next(0);
+      page = 0;
     }
-    else if(rect.top > vh * -0.75){
-      this.currentPage.next(1);
+    else if(rect.top > vh * -0.66){
+      page = 1
     }
     else {
-      const quotient = Math.floor((rect.top - vh * 0.25) / -vh);
-      this.currentPage.next(quotient);
+      page = Math.floor((rect.top - vh * 0.33) / -vh) + 1;
+    }
+    if (page != this.currentPage.value){
+      this.currentPage.next(page);
     }
    }
 }

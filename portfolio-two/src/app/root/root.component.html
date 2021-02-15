@@ -4,7 +4,7 @@
 <div class="headspace">
     <div class="headspace-solid"></div>
     <div class="headspace-fade">
-        <div class="heading">Hi, I'm Josh Siefken</div>
+        <div class="heading">{{ heading }}</div>
         <!--<div class="heading">About me</div>
         <div class="heading">Here are some things I've worked on</div>
         <div class="heading">Thanks for stopping by.</div>-->
@@ -22,7 +22,7 @@
     <div class="section"></div>
 </div>
 
-<div class="floater"><h3>Scroll down to find out more</h3></div>
+<div class="floater dissapearing" [ngClass]="pageZero ? 'visible' : 'invisible'"><h3>Scroll down to find out more</h3></div>
 
 <div class="page">
     <div class="col">        <p>
