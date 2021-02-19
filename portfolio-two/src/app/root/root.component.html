@@ -4,28 +4,29 @@
 <div class="headspace">
     <div class="headspace-solid"></div>
     <div class="headspace-fade">
-        <div class="heading">{{ heading }}</div>
-        <!--<div class="heading">About me</div>
-        <div class="heading">Here are some things I've worked on</div>
-        <div class="heading">Thanks for stopping by.</div>-->
+        <div class="heading dissapearing" [class.invisible]=hideWords>{{ heading }}</div>
     </div>
 </div>
+
+<!--Optional floating menu-->
+<app-floating-menu [page]='currentPage'></app-floating-menu>
 
 <!--Distinct sections of the page-->
-<div class="page">
+<div id="home" class="page" style="padding-top: 100px;">
 
-    <div  class="section top-left" style="text-align: center;">
-        <h3>I build websites. Let's make something great.</h3>
+    <div  class="section row subheading" style="padding-top: 80px;">
+        I build websites. Let's make something great.
+        <div class="circle"></div>
     </div>
-    <div class="section"></div>
     <div class="section"></div>
     <div class="section"></div>
 </div>
 
-<div class="floater dissapearing" [ngClass]="pageZero ? 'visible' : 'invisible'"><h3>Scroll down to find out more</h3></div>
+<div class="floater dissapearing" [ngClass]="pageBools[0] ? 'visible' : 'invisible'"><h3>Scroll down to find out more</h3></div>
 
-<div class="page">
-    <div class="col">        <p>
+<div id="about" class="page buffer-space">
+    <div class="col">
+        <p>
         I am a web developer with a passion for finding creative solutions to problems. I graduated from the University of Iowa's Informatics program with high distinction.
         My skills include UI and UX design as well as back-end logic. To me, every project is an opportunity to learn something new and create something beautiful.
         I am currently based in Eastern Iowa, but I don't shy away from remote work. If you want to know more about what I can do for you, please don't hesitate to leave me a message
@@ -36,7 +37,7 @@
     </div>
 
     <div class="section top-right">
-
+        <img src="../assets/marspic.jpg" style="max-width: 500px; width: 100%; height: auto;" />
     </div>
 
     <div class="section bottom-right">
@@ -45,16 +46,16 @@
     
 </div>
 
-<div class="page">
+<div id="portfolio" class="page">
     <div class="section"></div>
     <div class="section"></div>
     <div class="section"></div>
 </div>
 
-<div class="page">
-    <div class="section top-left">
-        <h2>Let's keep in touch.</h2>
-        <form>
+<div id="contact" class="page page-end">
+    <div class="section row">
+        <div class="subheading">Send me a message:</div>
+        <form class="email-form">
             <label for="name">Your name: </label><br />
             <input id="name" /><br />
             <label for="email-address">Your email address: </label><br />
@@ -63,9 +64,15 @@
             <textarea id="message" rows="8"></textarea><br />
             <button type="submit">Submit</button>
         </form>
+        <div class="section-label">Or connect through social media:</div>
+        <div class="links">
+            <strong>Github: <a class="blue-text" href="https://github.com/Jbsiefken">Jbsiefken</a></strong><br />
+            <strong>LinkedIn: <a class="blue-text" href="https://www.linkedin.com/in/jbsiefken/">Josh Siefken</a></strong><br />
+            <strong>Twitter: <a class="blue-text" href="https://twitter.com/jbsiefken">&#64;Jbsiefken</a></strong>
+        </div>
     </div>
-    <div class="section"></div>
-    <div class="section"></div>
-    <div class="section"></div>
 </div>
-<div id="footer"></div>
+<div class="footer footer-yellow" [class.visible]="pageBools[0]||pageBools[1]"></div>
+<div class="footer footer-magenta" [class.visible]="pageBools[2]"></div>
+<div class="footer footer-green" [class.visible]="pageBools[3]"></div>
+<div class="footer footer-blue" [class.visible]="pageBools[4]"></div>

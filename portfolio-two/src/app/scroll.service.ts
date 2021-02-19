@@ -18,7 +18,7 @@ export class ScrollService {
     const vh = window.innerHeight;
     const rect = document.getElementById('top').getBoundingClientRect();
     let page: number = 0
-    if (rect.top <= 0 && rect.top > vh * -0.25){
+    if (rect.top > vh * -0.25){
       page = 0;
     }
     else if(rect.top > vh * -0.66){
