@@ -3,6 +3,8 @@ import { from } from 'rxjs';
 import { EmailServiceService } from '../email-service.service';
 import {ScrollService } from '../scroll.service';
 import { HeaderMessage } from '../header-message';
+import { ProjectsService } from '../projects.service';
+import { IProject } from '../project';
 
 @Component({
   selector: 'root-component',
@@ -18,9 +20,12 @@ export class RootComponent implements OnInit {
   footerStyle: string = "footer-yellow";
   hideWords: boolean = false;
   lastPage: number;
+  projects: IProject[] = [];
+  errorMessage: string = "";
 
   constructor(private emailService: EmailServiceService,
-              private scroll: ScrollService){
+              private scroll: ScrollService,
+              private projectsService: ProjectsService){
     scroll.currentPage.subscribe((res) => {
       console.log("current section: ", res);
       this.lastPage = this.currentPage;
@@ -30,7 +35,13 @@ export class RootComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.projectsService.getProjects().subscribe({
+      next: projects => {
+       this.projects = projects;
+       console.log(this.projects[0]);
+      },
+      error: err => this.errorMessage = err
+    });
   }
 
   changePage(): void{
