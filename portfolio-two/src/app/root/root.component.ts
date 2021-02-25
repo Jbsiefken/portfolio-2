@@ -22,6 +22,7 @@ export class RootComponent implements OnInit {
   lastPage: number;
   projects: IProject[] = [];
   errorMessage: string = "";
+  projectsMessage: string = this.projects.length < 4 ? "More projects coming soon" : "";
 
   constructor(private emailService: EmailServiceService,
               private scroll: ScrollService,
@@ -38,7 +39,6 @@ export class RootComponent implements OnInit {
     this.projectsService.getProjects().subscribe({
       next: projects => {
        this.projects = projects;
-       console.log(this.projects[0]);
       },
       error: err => this.errorMessage = err
     });

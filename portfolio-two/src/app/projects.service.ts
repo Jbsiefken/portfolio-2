@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap, map } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 import { IProject } from './project';
 
@@ -13,13 +13,16 @@ export class ProjectsService {
 
   constructor(private http: HttpClient) { }
 
+  
   getProjects(): Observable<IProject[]> {
     return this.http.get<IProject[]>(this.projectUrl)      
     .pipe(
-      tap(data => console.log('All: ' + JSON.stringify(data))),
+      tap(data => {console.log('All: ' + JSON.stringify(data));
+    }),
       catchError(this.handleError)
     );
   }
+  
 
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage = '';
