@@ -1,6 +1,6 @@
 <div class="float-menu">
-    <div class="menu-link"><a class="yellow-text" href="#home">Home</a></div><br />
-    <div class="menu-link"><a class="magenta-text" href="#about">About</a></div><br />
-    <div class="menu-link"><a class="green-text" href="#portfolio">Portfolio</a></div><br />
-    <div class="menu-link"><a class="blue-text" href="#contact">Contact</a></div><br />
+    <div class="pill yellow" [class.pill-active]="pageBools[0]||pageBools[1]" onclick="window.location='#home'"><a class="menu-link yellow-text" href="#home">Home</a></div><br />
+    <div class="pill magenta" [class.pill-active]="pageBools[2]" onclick="window.location='#about'"><a class="menu-link magenta-text" href="#about">About</a></div><br />
+    <div class="pill green" [class.pill-active]="pageBools[3]" onclick="window.location='#portfolio'"><a class="menu-link green-text" href="#portfolio">Portfolio</a></div><br />
+    <div class="pill blue" [class.pill-active]="pageBools[4]" onclick="window.location='#contact'"><a class="menu-link blue-text" href="#contact">Contact</a></div><br />
 </div>

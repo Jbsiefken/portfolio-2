@@ -6,13 +6,13 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
   styleUrls: ['./floating-menu.component.scss']
 })
 export class FloatingMenuComponent implements OnChanges {
-  @Input() page: number;
+  @Input() pageBools: boolean[];
 
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes[0]){
-      this.page = changes[0].currentValue;
+      this.pageBools = changes[0].currentValue;
     }
   }
 
