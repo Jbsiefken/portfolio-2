@@ -50,7 +50,11 @@
     <div class="section">
         {{ projectsMessage }}
     </div>
-    <div class="section"></div>
+    <div class="section">
+        <div class="project-container" *ngFor="let project of projects">
+            <app-project-element [project]="project"></app-project-element>
+        </div>
+    </div>
     <div class="section"></div>
 </div>
 

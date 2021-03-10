@@ -292,6 +292,36 @@ a:active {
     top: -3px;
 }
 
+/*|| project elements */
+.overlay {
+    background-color: #0808082f;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px 1fr;
+    position: fixed;
+    top: 300px;
+    z-index: 11;
+    @include centered();
+    max-width: 80%;
+    width: 60%;
+    background-color: #333333;
+}
+
+
+
+.project-description {
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
 
 /*|| Other objects */
 .email-form {

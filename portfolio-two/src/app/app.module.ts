@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { RootComponent } from './root/root.component';
 import { FloatingMenuComponent } from './floating-menu/floating-menu.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ProjectElementComponent } from './project-element.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RootComponent,
-    FloatingMenuComponent
+    FloatingMenuComponent,
+    ProjectElementComponent
   ],
   imports: [
     BrowserModule,

@@ -3,4 +3,5 @@ export interface IProject {
     title: string;
     description: string;
     image: string;
+    url: string;
 }

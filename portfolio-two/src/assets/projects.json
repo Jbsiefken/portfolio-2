@@ -3,6 +3,7 @@
     "projectID": 1,
     "title": "test",
     "description": "a test object for display",
-    "image": "assets/marspic.jpg"
+    "image": "assets/marspic.jpg",
+    "url" : "null"
     }
 ]

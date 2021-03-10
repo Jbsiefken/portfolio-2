@@ -1,0 +1,19 @@
+<img [src]="project.image" style="width: 200px; height: auto;" (click)="toggleActive()" />
+
+<div *ngIf="active">
+    <div class="overlay" (click)="toggleActive()"></div>
+    <div class="project-card">
+        <div class="project-card-content">
+            <div>
+                <img [src]="project.image" style="width: 200px; height:auto;" />
+            </div>
+            <div>
+                <h2>{{ project.title }}</h2>
+                <h4>{{ project.url }}</h4>
+            </div>
+            <div class="project-description">
+                <p>{{ project.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
