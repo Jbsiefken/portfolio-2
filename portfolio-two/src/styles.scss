@@ -154,6 +154,7 @@ a:active {
     margin:auto;
     max-width: 1000px;
     border: black solid;
+
 }
 
 .section{
@@ -305,18 +306,27 @@ a:active {
 
 .project-card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 300px 1fr;
+    grid-template-columns: 50% 1fr;
+    grid-template-rows: auto 1fr;
     position: fixed;
-    top: 300px;
+    top: 140px;
     z-index: 11;
     @include centered();
     max-width: 80%;
     width: 60%;
     background-color: #333333;
+    padding: 10px
 }
 
+.project-card-image {
+    margin: 0px 20px 0px 0px;
+    width: 95%;
+    height: auto;
+}
 
+.project-card-title {
+    align-self: end;
+}
 
 .project-description {
     grid-column-start: 1;
@@ -398,5 +408,47 @@ a:active {
     .page {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
+    }
+
+    .top-left, 
+    .top-right,
+    .bottom-left,
+    .bottom-right,
+    .row {
+        grid-column-start: 1;
+        grid-column-end: -1;
+        grid-row-start: auto;
+        grid-row-end: auto;
+    }
+
+    .project-card {
+        width: 90%;
+        grid-template-columns: auto;
+    }
+
+    .project-card-image {
+        width: 100%;
+        top: 50px;
+    }
+
+}
+
+@media (max-width: 800px){
+    .page {
+        margin-right: auto;
+        width: 100vw;
+        max-width: 100%;
+        min-width: 230px;
+    }    
+    
+    .float-menu {
+        display: none;
+    }
+}
+
+
+@media (max-width: 1400px){
+    .page {
+        margin-right: 200px;
     }
 }
