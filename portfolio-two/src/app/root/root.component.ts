@@ -23,6 +23,8 @@ export class RootComponent implements OnInit {
   projects: IProject[] = [];
   errorMessage: string = "";
   projectsMessage: string = this.projects.length < 4 ? "More projects coming soon" : "";
+  menuOpen: boolean = false;
+  menuIcon: string = '&#9776;';
 
   constructor(private emailService: EmailServiceService,
               private scroll: ScrollService,
@@ -76,5 +78,14 @@ export class RootComponent implements OnInit {
     this.pageBools[this.currentPage] = true;
   }
 
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    if (this.menuOpen == true){
+      this.menuIcon = '&#10006';
+    }
+    else{
+      this.menuIcon = '&#9776';
+    }
+  }
 
 }

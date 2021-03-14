@@ -8,14 +8,26 @@
     </div>
 </div>
 
+<div class="top-menu-bar" (click)="toggleMenu()" [innerHtml]='menuIcon'></div>
+<div class="top-menu" [class.not-displayed]="!menuOpen">
+    <a class="yellow-text" href="#home">Home</a><br />
+    <a class="magenta-text" href="#about">About</a><br />
+    <a class="green-text" href="#portfolio">Portfolio</a><br />
+    <a class="blue-text" href="#contact">Contact</a><br />
+</div>
+
 <!--Optional floating menu-->
 <app-floating-menu [pageBools]='pageBools'></app-floating-menu>
 
-<!--Distinct sections of the page-->
-<div id="home" class="page" style="padding-top: 100px;">
-
-    <div  class="section row subheading" style="padding-top: 80px;">
-        I build websites. Let's make something great.
+<!--Page 1-->
+<div id="home" class="page page-one" style="padding-top: 100px;">
+    <div class="section row">
+        <div class="mobile-heading">
+            Hi, I'm Josh Siefken
+        </div>
+        <div  class="subheading" style="padding-top: 80px;">
+            I build websites. Let's make something great.
+        </div>
         <div class="circle"></div>
     </div>
     <div class="section"></div>
@@ -24,7 +36,14 @@
 
 <div class="floater dissapearing" [ngClass]="pageBools[0] ? 'visible' : 'invisible'"><h3>Scroll down to find out more</h3></div>
 
-<div id="about" class="page buffer-space">
+<!--Page 2-->
+<div id="about" class="page buffer-space page-two">
+    <div class="mobile-heading">
+        About me
+    </div>
+    <div class="section top-right">
+        <img src="../assets/marspic.jpg" style="max-width: 500px; width: 100%; height: auto;" />
+    </div>
     <div class="col">
         <p>
         I am a web developer with a passion for finding creative solutions to problems. I graduated from the University of Iowa's Informatics program with high distinction.
@@ -36,9 +55,6 @@
         </p>
     </div>
 
-    <div class="section top-right">
-        <img src="../assets/marspic.jpg" style="max-width: 500px; width: 100%; height: auto;" />
-    </div>
 
     <div class="section bottom-right">
 
@@ -46,11 +62,12 @@
     
 </div>
 
-<div id="portfolio" class="page">
-    <div class="section">
-        {{ projectsMessage }}
+<!--Page 3-->
+<div id="portfolio" class="page page-three">
+    <div class="mobile-heading">
+        Here are some things I've worked on
     </div>
-    <div class="section">
+    <div class="section row" style="justify-self: center;">
         <div class="project-container" *ngFor="let project of projects">
             <app-project-element [project]="project"></app-project-element>
         </div>
@@ -58,8 +75,12 @@
     <div class="section"></div>
 </div>
 
-<div id="contact" class="page page-end">
+<!--Page 4-->
+<div id="contact" class="page page-four page-end">
     <div class="section row">
+        <div class="mobile-heading">
+            Thanks for viewing, let's keep in touch
+        </div>
         <div class="subheading">Send me a message:</div>
         <form class="email-form">
             <label for="name">Your name: </label><br />

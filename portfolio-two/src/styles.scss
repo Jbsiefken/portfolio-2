@@ -90,6 +90,7 @@ $blue: #00e6e6;
 /*|| Basic Elements */
 html {
     scroll-behavior: smooth;
+    width: 100%;
 }
 
 body{
@@ -99,6 +100,7 @@ body{
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 18px;
+    width: 100%;
 }
 
 input {
@@ -154,6 +156,8 @@ a:active {
     margin:auto;
     max-width: 1000px;
     border: black solid;
+    word-wrap: break-word;
+    position: relative;
 
 }
 
@@ -250,6 +254,15 @@ a:active {
     z-index: 2;
 }
 
+.mobile-heading {
+    font-size: 40px;
+    display: none;
+}
+
+:is(.page-two) .mobile-heading {
+    position: absolute;
+}
+
 .subheading {
     font-size: 40px;
 }
@@ -294,6 +307,45 @@ a:active {
 }
 
 /*|| project elements */
+.project-container {
+    display: inline-flex;
+    justify-content: space-evenly;
+
+}
+
+.thumbnail-container {
+    margin: 5px;
+    width: 230px;
+    height: auto;    
+    text-align: center;
+    color: transparent;
+    transition: color .3s;
+    position: relative;
+}
+
+.thumbnail-container:hover {
+    color: white;
+}
+
+.project-thumbnail {
+    width: 100%;
+    background-color: black;
+    transition: opacity .3s;
+    z-index: 0;
+}
+
+.thumbnail-container:hover > .project-thumbnail {
+    opacity: .6;
+}
+
+.image-text {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    @include transform(translateX(-50%))
+}
+
 .overlay {
     background-color: #0808082f;
     z-index: 10;
@@ -310,12 +362,21 @@ a:active {
     grid-template-rows: auto 1fr;
     position: fixed;
     top: 140px;
+    bottom: 5px;
     z-index: 11;
     @include centered();
     max-width: 80%;
     width: 60%;
     background-color: #333333;
-    padding: 10px
+    padding: 10px;
+    overflow: auto;
+}
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
 }
 
 .project-card-image {
@@ -383,6 +444,33 @@ a:active {
     justify-content: space-evenly;
 }
 
+.top-menu-bar {
+    text-align: center;
+    font-size: 30px;
+    background-color: black;
+    color:white;
+    display:none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 40px;
+    z-index: 9;
+}
+
+.top-menu {
+    visibility: hidden;
+    width: 100vw;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    background-color: rgb(10, 10, 10);
+    color: white;
+    z-index: 9;
+    text-align: center;
+    line-height: 2;
+}
+
 /*|| FX classes */
 .invisible {
     opacity: 0;
@@ -400,7 +488,9 @@ a:active {
     transition: background-color 2s;
 }
 
-
+.not-displayed {
+    display: none;
+}
 
 
 /*|| Small screen layout */
@@ -408,6 +498,7 @@ a:active {
     .page {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
+        height: auto;
     }
 
     .top-left, 
@@ -431,18 +522,52 @@ a:active {
         top: 50px;
     }
 
+    .subheading {
+        font-size: 20px;
+    }
+
+    .heading,
+    .headspace,
+    .headspace-fade,
+    .headspace-solid {
+        display: none;
+    }
+
+    .mobile-heading {
+        display: block;
+    }
+
+    .circle {
+        display: none;
+    }
+
+    .floater {
+        display: none;
+    }
+
+    .footer {
+        display: none;
+    }
+
 }
 
 @media (max-width: 800px){
     .page {
         margin-right: auto;
-        width: 100vw;
-        max-width: 100%;
-        min-width: 230px;
+        width: 100%;
+        max-width: 95%;
     }    
     
     .float-menu {
         display: none;
+    }
+
+    .top-menu-bar {
+        display: block;
+    }
+
+    .top-menu {
+        visibility: visible;
     }
 }
 
@@ -450,5 +575,15 @@ a:active {
 @media (max-width: 1400px){
     .page {
         margin-right: 200px;
+    }
+}
+
+@media (max-height: 600px){
+    .page{
+        height: auto;
+    }
+
+    .footer {
+        display: none;
     }
 }

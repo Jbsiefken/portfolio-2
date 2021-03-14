@@ -1,8 +1,12 @@
-<img [src]="project.image" style="width: 200px; height: auto;" (click)="toggleActive()" />
+<div class="thumbnail-container">
+    <div class="image-text">{{ project.title }}</div>
+    <img [src]="project.image" class="project-thumbnail" (click)="toggleActive()" />
+</div>
 
 <div *ngIf="active">
     <div class="overlay" (click)="toggleActive()"></div>
     <div class="project-card">
+        <div class="close" (click)="toggleActive()">&#10006;</div>
         <img class="project-card-image" [src]="project.image" />
         <div class="project-card-title">
             <h2>{{ project.title }}</h2>
