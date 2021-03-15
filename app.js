@@ -33,7 +33,7 @@ const port = 3000;
 
 const server = http.createServer(app);
 
-app.listen(port, (err) => {
+app.listen(process.env.PORT || port, (err) => {
   if (err) {
       return console.error(err);
   }
