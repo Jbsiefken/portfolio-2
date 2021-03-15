@@ -8,8 +8,8 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // Parsers for POST data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Angular files
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -25,11 +25,17 @@ app.post('/api/email', bodyParser.json(), (req, res) => {
 
 // all non-api routes go to Angular
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/portfolio-two/index.html'));
 });
 
-app.set('port', 3000);
+const port = 3000;
+//app.set('port', 3000);
 
 const server = http.createServer(app);
 
-server.listen(port, () => console.log(`API running on localhost:3000`));
+app.listen(port, (err) => {
+  if (err) {
+      return console.error(err);
+  }
+  return console.log(`server is listening on ${port}`);
+});
