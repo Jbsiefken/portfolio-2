@@ -14,12 +14,12 @@ app.use(express.urlencoded({ extended: false }));
 // Angular files
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.post('/api/postData', bodyParser.json(), (req, res) => {
+app.post('/api/postData', express.json(), (req, res) => {
     res.json(req.body);
 });
 
 //(eventually) api for contact form
-app.post('/api/email', bodyParser.json(), (req, res) => {
+app.post('/api/email', express.json(), (req, res) => {
   res.json(req.body);
 });
 
