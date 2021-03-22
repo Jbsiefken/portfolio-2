@@ -67,12 +67,15 @@
     <div class="mobile-heading">
         Here are some things I've worked on
     </div>
-    <div class="section row" style="justify-self: center;">
-        <div class="project-container" *ngFor="let project of projects">
-            <app-project-element [project]="project"></app-project-element>
+    <div class="section row" style="justify-self: center; text-align: center;">
+        <div class="subheading" style="padding-top: 80px; padding-bottom: 60px;">My Projects</div>
+        <div class="project-container">
+            <app-project-element [project]="project" *ngFor="let project of projects"></app-project-element>
         </div>
     </div>
-    <div class="section"></div>
+    <div class="section row" style="text-align: center;">
+        <div class="subheading">New Projects Coming Soon</div>
+    </div>
 </div>
 
 <!--Page 4-->
