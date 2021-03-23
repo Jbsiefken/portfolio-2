@@ -90,7 +90,7 @@ $blue: #00e6e6;
 /*|| Basic Elements */
 html {
     scroll-behavior: smooth;
-    width: 100%;
+    width: 100vw;
 }
 
 body{
@@ -100,7 +100,7 @@ body{
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 18px;
-    width: 100%;
+    width: 100vw;
 }
 
 input {
@@ -369,8 +369,8 @@ a:active {
     bottom: 5px;
     z-index: 11;
     @include centered();
-    max-width: 80%;
-    width: 60%;
+    max-width: 1000px;
+    width: 90%;
     background-color: #333333;
     padding: 10px;
     overflow: auto;
@@ -519,6 +519,7 @@ a:active {
     .project-card {
         width: 90%;
         grid-template-columns: auto;
+        top: 50px;
     }
 
     .project-card-image {
